@@ -270,18 +270,21 @@ module.exports = function(grunt) {
     //     }
     //   }
     // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
+    uglify: {
+     dist: {
+       files: {
+         '<%= yeoman.dist %>/scripts/ng-password-strength.min.js': [
+           '<%= yeoman.dist %>/scripts/ng-password-strength.js'
+         ]
+       }
+     }
+    },
+    concat: {
+      dist: {
+        src: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+        dest: '<%= yeoman.dist %>/scripts/ng-password-strength.js',
+      },
+    },
 
     imagemin: {
       dist: {
