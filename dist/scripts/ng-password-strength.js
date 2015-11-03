@@ -13,7 +13,15 @@
 (function() {
   'use strict';
 
-  function ngPasswordStrength(PasswordStrengthService) {
+  /**
+   * @ngdoc directive
+   * @name ngPasswordStrengthApp.directive:ngPasswordStrength
+   * @description
+   * Progress bar showing the strength of a given password
+   */
+  angular
+    .module('ngPasswordStrength')
+    .directive('ngPasswordStrength', ['PasswordStrengthService', function (PasswordStrengthService) {
     function link(scope /*, elem, attrs*/ ) {
 
       scope.value = scope.value || PasswordStrengthService.measureStrength(scope.pwd);
@@ -82,17 +90,9 @@
       link: link
     };
 
-  }
+  }]);
 
-  /**
-   * @ngdoc directive
-   * @name ngPasswordStrengthApp.directive:ngPasswordStrength
-   * @description
-   * Progress bar showing the strength of a given password
-   */
-  angular
-    .module('ngPasswordStrength')
-    .directive('ngPasswordStrength', ngPasswordStrength);
+
 
 })();
 
