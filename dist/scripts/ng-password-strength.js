@@ -55,24 +55,24 @@
       });
 
       function getClass(s) {
-        switch (Math.round(s / 33)) {
-          case 0:
-          case 1:
-            return {
-              outter: scope.outterClassPrefix + 'alert',
-              inner: scope.innerClassPrefix + 'danger'
-            };
-          case 2:
-            return {
-              outter: scope.outterClassPrefix + 'alert',
-              inner: scope.innerClassPrefix + 'warning'
-            };
-          case 3:
-            return {
-              outter: scope.outterClassPrefix + 'alert',
-              inner: scope.innerClassPrefix + 'success'
-            };
+        var outterClass = '';
+        switch (Math.floor(s / 20)) {
+          case 0: // Very weak
+            outterClass = 'danger';
+            break;
+          case 1: // Weak
+            outterClass = 'warning';
+            break;
+          case 2: // Good
+            outterClass = 'info';
+            break;
+          default: // Strong or Very strong
+            outterClass = 'success';
         }
+        return {
+          outter: scope.outterClassPrefix + 'alert',
+          inner: scope.innerClassPrefix + outterClass
+        };
       }
     }
 
