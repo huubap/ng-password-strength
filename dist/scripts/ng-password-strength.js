@@ -55,19 +55,23 @@
       });
 
       function getClass(s) {
-        switch (Math.round(s / 33)) {
+        switch (Math.round(s / 20)) {
           case 0:
-          case 1:
             return {
               outter: scope.outterClassPrefix + 'alert',
               inner: scope.innerClassPrefix + 'danger'
             };
-          case 2:
+          case 1:
             return {
               outter: scope.outterClassPrefix + 'alert',
               inner: scope.innerClassPrefix + 'warning'
             };
-          case 3:
+          case 2:
+            return {
+              outter: scope.outterClassPrefix + 'alert',
+              inner: scope.innerClassPrefix + 'info'
+            };
+          default:
             return {
               outter: scope.outterClassPrefix + 'alert',
               inner: scope.innerClassPrefix + 'success'

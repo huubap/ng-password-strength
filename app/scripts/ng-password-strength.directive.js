@@ -43,19 +43,23 @@
       });
 
       function getClass(s) {
-        switch (Math.round(s / 33)) {
-          case 0:
-          case 1:
+        switch (Math.round(s / 20)) {
+          case 0: // Very weak
             return {
               outter: scope.outterClassPrefix + 'alert',
               inner: scope.innerClassPrefix + 'danger'
             };
-          case 2:
+          case 1: // Weak
             return {
               outter: scope.outterClassPrefix + 'alert',
               inner: scope.innerClassPrefix + 'warning'
             };
-          case 3:
+          case 2: // Good
+            return {
+              outter: scope.outterClassPrefix + 'alert',
+              inner: scope.innerClassPrefix + 'info'
+            };
+          default: // Strong or Very strong
             return {
               outter: scope.outterClassPrefix + 'alert',
               inner: scope.innerClassPrefix + 'success'
