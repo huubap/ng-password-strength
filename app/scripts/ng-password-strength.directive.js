@@ -43,28 +43,24 @@
       });
 
       function getClass(s) {
-        switch (Math.round(s / 20)) {
+        var outterClass = '';
+        switch (Math.floor(s / 20)) {
           case 0: // Very weak
-            return {
-              outter: scope.outterClassPrefix + 'alert',
-              inner: scope.innerClassPrefix + 'danger'
-            };
+            outterClass = 'danger';
+            break;
           case 1: // Weak
-            return {
-              outter: scope.outterClassPrefix + 'alert',
-              inner: scope.innerClassPrefix + 'warning'
-            };
+            outterClass = 'warning';
+            break;
           case 2: // Good
-            return {
-              outter: scope.outterClassPrefix + 'alert',
-              inner: scope.innerClassPrefix + 'info'
-            };
+            outterClass = 'info';
+            break;
           default: // Strong or Very strong
-            return {
-              outter: scope.outterClassPrefix + 'alert',
-              inner: scope.innerClassPrefix + 'success'
-            };
+            outterClass = 'success';
         }
+        return {
+          outter: scope.outterClassPrefix + 'alert',
+          inner: scope.innerClassPrefix + outterClass
+        };
       }
     }
 
